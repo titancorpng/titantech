@@ -452,22 +452,7 @@ nav{
     flex-direction: column;
     align-items: center;
   }
-
-  #contact button {
-    width: 50%; /* Adjust width for smaller screens */
-    font-size: 0.9rem; /* Scale down font size */
-    padding: 0.8rem; /* Adjust padding */
-  }
-}
-
-@media (max-width: 480px) {
-  #contact button {
-    width: 70%; /* Further adjust width for very small screens */
-    font-size: 0.8rem; /* Further scale down font size */
-    padding: 0.6rem; /* Adjust padding */
-  }
-}
-
+    
 /* Scrollbar */
 body::-webkit-scrollbar {
     width: 8px;
@@ -500,6 +485,11 @@ body::-webkit-scrollbar-thumb:hover {
     margin-bottom: 20px;
 }
 
+/* Ensure there's space between services and contact form */
+#services-section {  /* Add specific padding/margin to services section */
+    padding-bottom: 50px; /* Add space at the bottom of the services section */
+}
+
 /* Form Styling */
 #contact form {
     display: flex;
@@ -509,6 +499,7 @@ body::-webkit-scrollbar-thumb:hover {
     width: 60%; /* Default width for larger screens */
     max-width: 800px; /* Ensure form doesn't stretch too wide on large screens */
     margin: 0 auto; /* Center the form */
+    margin-top: 50px; /* Adds space between services section and contact form */
 }
 
 #contact input,
