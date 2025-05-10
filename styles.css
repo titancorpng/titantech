@@ -1,22 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 
-*{
+* {
     padding: 0;
     margin: 0;
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
 }
 
-body{
+body {
     width: 100%;
     height: auto;
-    overflow-y: scroll; /* Enable scrolling */
+    overflow-y: scroll;
     background-color: black;
 }
 
-section{
+section {
     width: 100%;
-    padding: 20px; /* Add some padding to create space for content */
+    padding: 20px;
 }
 
 /* Header Styles */
@@ -68,7 +68,8 @@ header nav a:hover {
     }
 }
 
-nav{
+/* Navigation Styles */
+nav {
     width: 100%;
     height: 10vh;
     position: sticky;
@@ -76,7 +77,8 @@ nav{
     background-color: black;
     z-index: 10000;
 }
-.nav-container{
+
+.nav-container {
     width: 100%;
     height: 100%;
     display: flex;
@@ -84,17 +86,21 @@ nav{
     align-items: center;
     padding: 0 20px;
 }
-.logo{
+
+.logo {
     color: white;
     font-size: 2rem;
     font-weight: bold;
 }
-.logo span{
+
+.logo span {
     color: #077b32;
     text-shadow: 0 0 10px #077b32;
 }
+
+/* Hamburger and Cancel Button Styles */
 .hamburg,
-.cancel{
+.cancel {
     cursor: pointer;
     position: absolute;
     right: 15px;
@@ -103,10 +109,13 @@ nav{
     display: none;
     font-size: clamp(2.5rem, 0.5rem + 5vw, 3rem);
 }
-.nav-container .links{
+
+/* Navigation Links */
+.nav-container .links {
     display: flex;
 }
-.nav-container .links a{
+
+.nav-container .links a {
     position: relative;
     font-size: 1.2rem;
     color: white;
@@ -115,7 +124,8 @@ nav{
     font-weight: 550;
     transition: 0.3s linear;
 }
-.nav-container .links a::before{
+
+.nav-container .links a::before {
     position: absolute;
     content: "";
     bottom: -3px;
@@ -125,13 +135,17 @@ nav{
     background-color: #077b32;
     transition: 0.2s linear;
 }
-.nav-container .links a:hover::before{
+
+.nav-container .links a:hover::before {
     width: 100%;
 }
-.nav-container .links a:hover{
+
+.nav-container .links a:hover {
     color: #077b32;
 }
-.dropdown{
+
+/* Dropdown Styles */
+.dropdown {
     z-index: 100;
     position: absolute;
     top: 0;
@@ -142,7 +156,8 @@ nav{
     box-shadow: 0 0 20px black;
     transition: 0.2s linear;
 }
-.dropdown .links a{
+
+.dropdown .links a {
     display: flex;
     color: white;
     text-decoration: none;
@@ -150,23 +165,61 @@ nav{
     padding: 15px 0;
     align-items: center;
 }
-.dropdown .links a:hover{
+
+.dropdown .links a:hover {
     background-color: #077b32;
 }
 
+/* Mobile Responsive Menu */
+@media (max-width: 768px) {
+    .nav-container .links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #333;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+    
+    .hamburg {
+        display: block;
+    }
+
+    .cancel {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 10px;
+    }
+
+    .nav-container .links.active {
+        display: flex;
+    }
+}
+
+/* Show Menu when Hamburger is Clicked */
+.hamburg.active + .nav-container .links {
+    display: flex;
+}
 
 .main-container {
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
+    position: relative;
+    padding: 20px 0; /* Added padding to avoid overlap */
+    z-index: 1; /* Ensure it stays above other sections */
 }
   
 .main-container .image {
-    width: 15%; /* Adjusted percentage for responsiveness */
-    height: auto; /* Maintain aspect ratio */
+    width: 15%; /* Adjusted for larger screens */
+    height: auto;
     border-radius: 20%;
     overflow: hidden;
     box-shadow: 0 0 50px #01ef58;
@@ -178,21 +231,23 @@ nav{
     padding: 1%;
     animation: hoverEffect 1.5s ease-in-out infinite;
     transition: width 0.3s ease, height 0.3s ease; /* Smooth resize transition */
+    z-index: 2; /* Keeps image above the content */
 }
 
 .main-container .image:hover {
     color: #077b32;
     border: 2px solid #077b32;
-    background-color:  #0000005a;
+    background-color: #0000005a;
     font-weight: 700;
     box-shadow: 0 0 40px #077b32;  
 }
+
 .main-container .image img {
-    width: 100%; /* Image adapts to the container width */
-    height: 100%; /* Image adapts to the container height */
-    object-fit: cover; /* Ensures the image fits perfectly without distortion */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     padding: 15px;
-    opacity: 1; /* Adjust between 0 (fully transparent) to 1 (fully visible) */
+    opacity: 1;
     transition: opacity 0.9s ease-in-out;
 }
   
@@ -212,114 +267,104 @@ nav{
     }
 }
 
-/* Responsive adjustments with media queries */
+/* Responsive adjustments */
 @media (max-width: 1024px) {
     .main-container .image {
-      width: 30%; /* Increase width for smaller screens */
+        width: 30%; /* Adjust width for smaller screens */
     }
 }
 
 @media (max-width: 768px) {
     .main-container .image {
-      width: 40%; /* Adjust width for tablets and smaller screens */
-    }
-}
-
-@media (max-width: 480px) {
-    .main-container .image {
-      width: 50%; /* Further increase width for very small screens */
-    }
-}
-
-@media (max-width: 1024px) {
-    .main-container .image img {
-        width: 30%; /* Increase width for smaller screens */
-    }
-}
-
-@media (max-width: 768px) {
-    .main-container .image img {
         width: 40%; /* Adjust width for tablets and smaller screens */
     }
 }
 
 @media (max-width: 480px) {
-    .main-container .image img {
+    .main-container .image {
         width: 50%; /* Further increase width for very small screens */
     }
 }
 
-.content{
+.content {
     background: url('https://raw.githubusercontent.com/titancorpng/titantech/main/2.png') no-repeat center center / cover;
     color: white;
     width: 100%;
     padding-top: 30%;
     text-align: center;
+    padding-bottom: 20px; /* Ensures proper spacing between sections */
+    position: relative;
+    z-index: 1; /* Keeps content section below the image */
 }
 
-.content h1{
-    font-size: clamp(2rem, 2rem + 5vw, 3rem); /* Adjust font size for better responsiveness */
+.content h1 {
+    font-size: clamp(2rem, 2rem + 5vw, 3rem);
 }
-.content h1 span{
+
+.content h1 span {
     color: #077b32;
     text-shadow: 0 0 10px #077b32;
 }
-.content .typewriter{
+
+.content .typewriter {
     font-size: clamp(1rem, 1rem + 5vw, 2.5rem);
     font-weight: 600;
 }
-.content .typewriter-text{
+
+.content .typewriter-text {
     color: #077b32;
     text-shadow: 0 0 10px #077b32;
 }
-.content p{
+
+.content p {
     font-size: clamp(0.8rem, 0.5rem + 6vw, 1rem);
     margin: 10px 0;
 }
 
 .content button {
-    width: 15%; /* Adjusted width for better responsiveness */
-    height: auto; /* Auto height to scale with content */
-    padding: 1.2rem; /* Add padding for consistent spacing */
+    width: 15%; 
+    height: auto;
+    padding: 1.2rem;
     margin: 20px;
     background-color: #077b32;
     color: white;
     border: none;
     outline: none;
-    font-size: 1rem; /* Use relative units for font size */
+    font-size: 1rem;
     font-weight: 700;
     border-radius: 5px;
     transition: transform 0.2s linear, background-color 0.2s linear;
-    box-shadow: 0 0 20px rgba(7, 123, 50, 0.8); /* Maintain a consistent shadow */
-    text-align: center; /* Ensure content is centered */
+    box-shadow: 0 0 20px rgba(7, 123, 50, 0.8);
+    text-align: center;
 }
 
 .content button:hover {
-    transform: scale(1.1); /* Smooth hover scaling */
+    transform: scale(1.1);
     color: #077b32;
     border: 2px solid #077b32;
     background-color: transparent;
     font-weight: 700;
-    box-shadow: 0 0 40px rgba(7, 123, 50, 0.9); /* Enhanced hover shadow */
+    box-shadow: 0 0 40px rgba(7, 123, 50, 0.9);
 }
 
+/* Responsive Button Adjustments */
 @media (max-width: 1024px) {
     .content button {
-        width: 30%; /* Adjust button width for tablets */
+        width: 30%; /* Adjust width for tablets */
         font-size: 0.9rem;
     }
 }
 
 @media (max-width: 768px) {
     .content button {
-        width: 40%; /* Adjust button width for mobile screens */
+        width: 40%; /* Adjust width for mobile screens */
         font-size: 0.8rem;
     }
 }
 
 @media (max-width: 480px) {
     .content button {
-        width: 50%; /* Further adjust width for very small screens */
+        width: 50%; /* Adjust width for very small screens */
         font-size: 0.7rem;
         padding: 0.8rem; /* Adjust padding */
     }
@@ -371,88 +416,90 @@ nav{
 
 /* Services Section */
 .services-container {
-  background: url('https://raw.githubusercontent.com/titancorpng/titantech/main/1.png') no-repeat center center / cover;
-  width: 100%;
-  height: 30rem;
-  color: white;
-  text-align: center;
+    background: url('https://raw.githubusercontent.com/titancorpng/titantech/main/1.png') no-repeat center center / cover;
+    width: 100%;
+    height: auto;
+    padding: 60px 20px;
+    color: white;
+    text-align: center;
 }
 
 .services-container h2 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #fff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
 }
 
 .services-container .services {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .services-container .service {
-  background-color: #077b32;
-  color: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 250px;
-  text-align: center;
-  transition: 0.3s ease;
-  box-shadow: 0 4px 10px rgb(58, 250, 0);
+    background-color: #077b32;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 250px;
+    text-align: center;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 10px rgb(58, 250, 0);
 }
 
 .services-container .service h3 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 15px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
 }
 
 .services-container h4 {
-  font-size: 1.2rem;
-  font-weight: bold;
-  padding: 1rem;
-  color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 1rem;
+    color: #fff;
 }
 
 .services-container .service ul {
-  list-style: none;
-  padding: 0;
-  font-size: 1rem;
+    list-style: none;
+    padding: 0;
+    font-size: 1rem;
 }
 
 .services-container .service ul li {
-  margin-bottom: 8px;
-  text-align: left;
-  padding-left: 15px;
-  position: relative;
+    margin-bottom: 8px;
+    text-align: left;
+    padding-left: 15px;
+    position: relative;
 }
 
 .services-container .service ul li::before {
-  content: '✔';
-  position: absolute;
-  left: 0;
-  color: #fff;
-  font-size: 1.1rem;
-  top: 0;
+    content: '✔';
+    position: absolute;
+    left: 0;
+    color: #fff;
+    font-size: 1.1rem;
+    top: 0;
 }
 
 .services-container .service:hover {
-  scale: 1.1;
-  color: #077b32;
-  border: 2px solid #077b32;
-  background-color: transparent;
-  font-weight: 700;
-  box-shadow: 0 0 40px #077b32;
+    transform: scale(1.1);
+    color: #077b32;
+    border: 2px solid #077b32;
+    background-color: transparent;
+    font-weight: 700;
+    box-shadow: 0 0 40px #077b32;
 }
 
-/* Media Queries for Responsiveness */
+/* Media Queries for Services */
 @media (max-width: 768px) {
-  .services-container .services {
-    flex-direction: column;
-    align-items: center;
-  }
-    
+    .services-container .services {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 /* Scrollbar */
 body::-webkit-scrollbar {
     width: 8px;
@@ -481,31 +528,31 @@ body::-webkit-scrollbar-thumb:hover {
 /* Heading Styling */
 #contact h1 {
     text-align: center; 
-    font-size: 3rem; /* Adjusted font size for readability */
+    font-size: 3rem;
     margin-bottom: 20px;
 }
 
-/* Ensure there's space between services and contact form */
-#services-section {  /* Add specific padding/margin to services section */
-    padding-bottom: 50px; /* Add space at the bottom of the services section */
+/* Ensure spacing between services and contact form */
+#services-section {
+    padding-bottom: 50px;
 }
 
-/* Form Styling */
+/* Contact Form Styling */
 #contact form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px; /* Space between form elements */
-    width: 60%; /* Default width for larger screens */
-    max-width: 800px; /* Ensure form doesn't stretch too wide on large screens */
-    margin: 0 auto; /* Center the form */
-    margin-top: 50px; /* Adds space between services section and contact form */
+    gap: 20px;
+    width: 60%;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 50px;
 }
 
 #contact input,
 #contact textarea {
-    width: 100%; /* Take up full width of the form container */
-    max-width: 500px; /* Ensure inputs don't stretch too wide */
+    width: 100%;
+    max-width: 500px;
     padding: 10px;
     margin: 10px 0;
     border: none;
@@ -516,8 +563,8 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 #contact button {
-    width: 30%; /* Adjusted width for better responsiveness */
-    max-width: 200px; /* Limit max width of the button */
+    width: 30%;
+    max-width: 200px;
     padding: 1rem;
     background-color: #077b32;
     color: white;
@@ -529,9 +576,8 @@ body::-webkit-scrollbar-thumb:hover {
     box-shadow: 0 0 20px rgba(7, 123, 50, 0.8); 
 }
 
-/* Button Hover Effect */
 #contact button:hover {
-    transform: scale(1.05); /* Slightly larger hover effect */
+    transform: scale(1.05);
     color: #077b32;
     border: 2px solid #077b32;
     background-color: transparent;
@@ -539,47 +585,46 @@ body::-webkit-scrollbar-thumb:hover {
     box-shadow: 0 0 40px rgba(7, 123, 50, 0.9);
 }
 
-/* Responsive Design for Mobile and Tablets */
+/* Responsive Contact Form */
 @media (max-width: 768px) {
     #contact form {
-        width: 80%; /* Increase form width for smaller screens */
+        width: 80%;
     }
 
     #contact h1 {
-        font-size: 2.5rem; /* Adjust header size for mobile */
+        font-size: 2.5rem;
     }
 
     #contact input,
     #contact textarea {
         width: 100%;
-        font-size: 0.9rem; /* Adjust font size for smaller screens */
+        font-size: 0.9rem;
     }
 
     #contact button {
-        width: 60%; /* Adjust button width for mobile */
+        width: 60%;
         font-size: 1rem;
-        padding: 1.2rem; /* More padding for easier tapping */
+        padding: 1.2rem;
     }
 }
 
-/* For Smaller Mobile Screens */
 @media (max-width: 480px) {
     #contact h1 {
-        font-size: 2rem; /* Adjust header size for very small screens */
+        font-size: 2rem;
     }
 
     #contact form {
-        width: 90%; /* Increase form width further for small screens */
+        width: 90%;
     }
 
     #contact button {
-        width: 70%; /* Increase button width for easier clicking */
+        width: 70%;
         font-size: 0.9rem;
-        padding: 1rem; /* Adjust padding for small screens */
+        padding: 1rem;
     }
 
     #contact input,
     #contact textarea {
-        font-size: 0.85rem; /* Reduce font size for small screens */
+        font-size: 0.85rem;
     }
 }
