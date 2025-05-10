@@ -151,7 +151,7 @@ nav{
     opacity: 1; /* Full opacity on hover */
 }
 
-  @keyframes hoverEffect {
+@keyframes hoverEffect {
     0% {
       transform: translateY(-50%) scale(1);
     }
@@ -161,43 +161,55 @@ nav{
     100% {
       transform: translateY(-50%) scale(1);
     }
-  }
-  
-  /* Responsive adjustments with media queries */
-  @media (max-width: 768px) {
+}
+
+/* Responsive adjustments with media queries */
+@media (max-width: 1024px) {
     .main-container .image {
       width: 30%; /* Increase width for smaller screens */
     }
-  }
-  
-  @media (max-width: 480px) {
+}
+
+@media (max-width: 768px) {
+    .main-container .image {
+      width: 40%; /* Adjust width for tablets and smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
     .main-container .image {
       width: 50%; /* Further increase width for very small screens */
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .main-container .image img {
         width: 30%; /* Increase width for smaller screens */
     }
-  }
-  
-  @media (max-width: 480px) {
+}
+
+@media (max-width: 768px) {
     .main-container .image img {
-        width: 20%; /* Further increase width for very small screens */
+        width: 40%; /* Adjust width for tablets and smaller screens */
     }
 }
-  
-.main-container .content{
+
+@media (max-width: 480px) {
+    .main-container .image img {
+        width: 50%; /* Further increase width for very small screens */
+    }
+}
+
+.content{
     background: url('https://raw.githubusercontent.com/titancorpng/titantech/main/2.png') no-repeat center center / cover;
     color: white;
     width: 100%;
     padding-top: 30%;
     text-align: center;
-    
 }
+
 .content h1{
-    font-size: clamp(3rem, 3rem + 7vw, 3rem);
+    font-size: clamp(2rem, 2rem + 5vw, 3rem); /* Adjust font size for better responsiveness */
 }
 .content h1 span{
     color: #077b32;
@@ -212,7 +224,7 @@ nav{
     text-shadow: 0 0 10px #077b32;
 }
 .content p{
-    font-size: clamp(0.4rem , 0.2rem + 9vw, 1rem);
+    font-size: clamp(0.8rem, 0.5rem + 6vw, 1rem);
     margin: 10px 0;
 }
 
@@ -242,19 +254,24 @@ nav{
     box-shadow: 0 0 40px rgba(7, 123, 50, 0.9); /* Enhanced hover shadow */
 }
 
-/* Add a media query for smaller screen adjustments */
+@media (max-width: 1024px) {
+    .content button {
+        width: 30%; /* Adjust button width for tablets */
+        font-size: 0.9rem;
+    }
+}
+
 @media (max-width: 768px) {
     .content button {
-        width: 50%; /* Adjust width for smaller screens */
-        font-size: 0.9rem; /* Scale down font size */
-        padding: 1rem; /* Adjust padding */
+        width: 40%; /* Adjust button width for mobile screens */
+        font-size: 0.8rem;
     }
 }
 
 @media (max-width: 480px) {
     .content button {
-        width: 70%; /* Further adjust width for very small screens */
-        font-size: 0.8rem; /* Further scale down font size */
+        width: 50%; /* Further adjust width for very small screens */
+        font-size: 0.7rem;
         padding: 0.8rem; /* Adjust padding */
     }
 }
@@ -262,14 +279,32 @@ nav{
 /* About Section */
 .about-container {
     width: 100%;
-    height: 20rem;
+    height: auto;
     padding: 30px;
     background-color: black;
     color: white;
     text-align: center;
-    margin-top: 50px; /* Ensures spacing from the previous section */
-    display: block; /* Ensures it takes full width */
-    clear: both; /* Prevents overlap if previous section has floating elements */
+    margin-top: 50px;
+    display: block;
+    clear: both;
+}
+
+@media (max-width: 1024px) {
+    .about-container {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-container {
+        padding: 10px;
+    }
 }
 
 /* Heading Style */
@@ -312,7 +347,7 @@ nav{
   color: white;
   padding: 20px;
   border-radius: 8px;
-  width: 250px; /* Adjusted width for cards */
+  width: 250px;
   text-align: center;
   transition: 0.3s ease;
   box-shadow: 0 4px 10px rgb(58, 250, 0);
@@ -325,11 +360,11 @@ nav{
 }
 
 .services-container h4 {
-    font-size: 1.2rem;
-    font-weight: bold;
-    padding: 1rem;
-    color: #fff;
-}  
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 1rem;
+  color: #fff;
+}
 
 .services-container .service ul {
   list-style: none;
@@ -345,7 +380,7 @@ nav{
 }
 
 .services-container .service ul li::before {
-  content: '✔'; /* Checkmark icon before each list item */
+  content: '✔';
   position: absolute;
   left: 0;
   color: #fff;
@@ -362,10 +397,25 @@ nav{
   box-shadow: 0 0 40px #077b32;
 }
 
+/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
   .services-container .services {
-      flex-direction: column;
-      align-items: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #contact button {
+    width: 50%; /* Adjust width for smaller screens */
+    font-size: 0.9rem; /* Scale down font size */
+    padding: 0.8rem; /* Adjust padding */
+  }
+}
+
+@media (max-width: 480px) {
+  #contact button {
+    width: 70%; /* Further adjust width for very small screens */
+    font-size: 0.8rem; /* Further scale down font size */
+    padding: 0.6rem; /* Adjust padding */
   }
 }
 
@@ -387,53 +437,6 @@ body::-webkit-scrollbar-thumb:hover {
     background: #077b32;
 }
 
-@media (max-width:884px) {
-    nav .logo{
-        position: absolute;
-        top: 16px;
-        left: 15px;
-        font-size: 1.5rem;
-    }
-    .main-container {
-        display: flex;
-        flex-direction: column;
-    }
-    .nav-container .links{
-        display: none;
-    }
-    .hamburg,
-    .cancel{
-        display: block;
-    }
-    .main-container .content{
-        width: 80%;
-    }
-    .social-links i{
-        width: 2.5rem;
-        height: 2.5rem;
-        font-size: 1.5rem;
-    }
-    .main-container .image{
-        z-index: -1;
-        width: 50%;
-        height: 60%;
-    }
-}
-
-@media (max-width:440px){
-    .main-container .image{
-        width: 50%;
-        height: 60%;
-        margin-bottom: 0px;
-    }
-    .main-container .content{
-        width: 80%;
-    }
-    .main-container button{
-        margin-top: 15px;
-    }
-}
-
 /* Contact Section */
 #contact .content-section {
     background-color: #000000;
@@ -442,8 +445,8 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 #contact h1 {
-    text-align: center; /* Center the header */
-    font-size: 2.5vw; /* Make the font size responsive */
+    text-align: center; 
+    font-size: 2.5vw; 
     margin-bottom: 20px;
 }
 
@@ -466,40 +469,23 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 #contact button {
-    width: 15%; /* Adjusted width for better responsiveness */
-    padding: 1rem; /* Adjusted padding for consistency */
+    width: 15%; 
+    padding: 1rem; 
     background-color: #077b32;
     color: white;
     border: none;
     border-radius: 5px;
-    font-size: 1rem; /* Use relative units for font size */
+    font-size: 1rem; 
     cursor: pointer;
     transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 0 20px rgba(7, 123, 50, 0.8); /* Consistent shadow */
+    box-shadow: 0 0 20px rgba(7, 123, 50, 0.8); 
 }
 
 #contact button:hover {
-    transform: scale(1.02); /* Smooth hover scaling */
+    transform: scale(1.02);
     color: #077b32;
     border: 2px solid #077b32;
     background-color: transparent;
     font-weight: 700;
-    box-shadow: 0 0 40px rgba(7, 123, 50, 0.9); /* Enhanced hover shadow */
-}
-
-/* Add responsive adjustments */
-@media (max-width: 768px) {
-    #contact button {
-        width: 50%; /* Adjust width for smaller screens */
-        font-size: 0.9rem; /* Scale down font size */
-        padding: 0.8rem; /* Adjust padding */
-    }
-}
-
-@media (max-width: 480px) {
-    #contact button {
-        width: 70%; /* Further adjust width for very small screens */
-        font-size: 0.8rem; /* Further scale down font size */
-        padding: 0.6rem; /* Adjust padding */
-    }
+    box-shadow: 0 0 40px rgba(7, 123, 50, 0.9);
 }
