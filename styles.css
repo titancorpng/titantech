@@ -492,6 +492,11 @@ nav {
     box-shadow: 0 0 40px #077b32;
 }
 
+/* Ensure spacing between services and contact form */
+#services-section {
+    padding-bottom: 50px;
+}
+
 /* Media Queries for Services */
 @media (max-width: 768px) {
     .services-container .services {
@@ -529,12 +534,9 @@ body::-webkit-scrollbar-thumb:hover {
 #contact h1 {
     text-align: center; 
     font-size: 3rem;
-    margin-bottom: 20px;
-}
-
-/* Ensure spacing between services and contact form */
-#services-section {
-    padding-bottom: 50px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #fff;
 }
 
 /* Contact Form Styling */
