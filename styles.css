@@ -19,6 +19,55 @@ section{
     padding: 20px; /* Add some padding to create space for content */
 }
 
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #333;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: white;
+}
+
+header nav {
+    display: flex;
+    gap: 20px;
+}
+
+header nav a {
+    font-size: 1.1rem;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #077b32; /* Green on hover */
+}
+
+/* Responsive Adjustments for Header */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    header h1 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+    header nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+    header nav a {
+        font-size: 1.2rem;
+    }
+}
+
 nav{
     width: 100%;
     height: 10vh;
@@ -444,21 +493,28 @@ body::-webkit-scrollbar-thumb:hover {
     padding: 50px 0;
 }
 
+/* Heading Styling */
 #contact h1 {
     text-align: center; 
-    font-size: 2.5vw; 
+    font-size: 3rem; /* Adjusted font size for readability */
     margin-bottom: 20px;
 }
 
+/* Form Styling */
 #contact form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 20px; /* Space between form elements */
+    width: 60%; /* Default width for larger screens */
+    max-width: 800px; /* Ensure form doesn't stretch too wide on large screens */
+    margin: 0 auto; /* Center the form */
 }
 
 #contact input,
 #contact textarea {
-    width: 30%;
+    width: 100%; /* Take up full width of the form container */
+    max-width: 500px; /* Ensure inputs don't stretch too wide */
     padding: 10px;
     margin: 10px 0;
     border: none;
@@ -469,23 +525,70 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 #contact button {
-    width: 15%; 
-    padding: 1rem; 
+    width: 30%; /* Adjusted width for better responsiveness */
+    max-width: 200px; /* Limit max width of the button */
+    padding: 1rem;
     background-color: #077b32;
     color: white;
     border: none;
     border-radius: 5px;
-    font-size: 1rem; 
+    font-size: 1rem;
     cursor: pointer;
     transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 0 20px rgba(7, 123, 50, 0.8); 
 }
 
+/* Button Hover Effect */
 #contact button:hover {
-    transform: scale(1.02);
+    transform: scale(1.05); /* Slightly larger hover effect */
     color: #077b32;
     border: 2px solid #077b32;
     background-color: transparent;
     font-weight: 700;
     box-shadow: 0 0 40px rgba(7, 123, 50, 0.9);
+}
+
+/* Responsive Design for Mobile and Tablets */
+@media (max-width: 768px) {
+    #contact form {
+        width: 80%; /* Increase form width for smaller screens */
+    }
+
+    #contact h1 {
+        font-size: 2.5rem; /* Adjust header size for mobile */
+    }
+
+    #contact input,
+    #contact textarea {
+        width: 100%;
+        font-size: 0.9rem; /* Adjust font size for smaller screens */
+    }
+
+    #contact button {
+        width: 60%; /* Adjust button width for mobile */
+        font-size: 1rem;
+        padding: 1.2rem; /* More padding for easier tapping */
+    }
+}
+
+/* For Smaller Mobile Screens */
+@media (max-width: 480px) {
+    #contact h1 {
+        font-size: 2rem; /* Adjust header size for very small screens */
+    }
+
+    #contact form {
+        width: 90%; /* Increase form width further for small screens */
+    }
+
+    #contact button {
+        width: 70%; /* Increase button width for easier clicking */
+        font-size: 0.9rem;
+        padding: 1rem; /* Adjust padding for small screens */
+    }
+
+    #contact input,
+    #contact textarea {
+        font-size: 0.85rem; /* Reduce font size for small screens */
+    }
 }
